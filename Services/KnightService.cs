@@ -17,4 +17,14 @@ public class KnightService
         };
         _knightRepository.Add(knight);
     }
+
+    public List<Knight> BuscarTodos()
+    {
+        return _knightRepository.GetAll();
+    }
+
+    public void ApagarKnight(int id)
+    {
+        _knightRepository.Delete(id);
+    }
 }

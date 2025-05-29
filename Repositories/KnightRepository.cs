@@ -47,4 +47,14 @@ public class KnightRepository
             cmd.ExecuteNonQuery();
         }
     }
+
+    public void Delete(int id)
+    {
+        using (var conn = Database.GetConnection())
+        using (var cmd = new MySqlCommand("DELETE FROM knights WHERE id = @id", conn))
+        {
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+        }
+    }
 }

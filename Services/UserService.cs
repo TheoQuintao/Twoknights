@@ -1,3 +1,5 @@
+using MySqlConnector;
+
 public class UserService
 {
     private readonly UserRepository _userRepository = new UserRepository();
@@ -27,5 +29,35 @@ public class UserService
 
         AdicionarUsuario(nome, senha);
         return true;
+    }
+
+    public User? GetUser(string nome, string senha)
+    {
+        return _userRepository.GetByNomeSenha(nome, senha);
+    }
+
+    public User? GetById(int id)
+    {
+        using (var conn = Database.GetConnection())
+        {
+            // conn.Open(); // Remova ou comente esta linha!
+            using (var cmd = new MySqlCommand("SELECT id, nome, senha FROM user WHERE id = @id", conn))
+            {
+                cmd.Parameters.AddWithValue("@id", id);
+                using (var reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        return new User
+                        {
+                            Id = reader.GetInt32("id"),
+                            Nome = reader.GetString("nome"),
+                            Senha = reader.GetString("senha")
+                        };
+                    }
+                }
+            }
+        }
+        return null;
     }
 }

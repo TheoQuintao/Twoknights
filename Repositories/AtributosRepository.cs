@@ -35,4 +35,39 @@ public class AtributosRepository
             cmd.ExecuteNonQuery();
         }
     }
+
+    public int AddAndReturnId(Atributos atributo)
+    {
+        using (var conn = Database.GetConnection())
+        using (var cmd = new MySqlCommand("INSERT INTO atributos (força, destreza, Constituicao) VALUES (@forca, @destreza, @constituicao); SELECT LAST_INSERT_ID();", conn))
+        {
+            cmd.Parameters.AddWithValue("@forca", atributo.Forca);
+            cmd.Parameters.AddWithValue("@destreza", atributo.Destreza);
+            cmd.Parameters.AddWithValue("@constituicao", atributo.Constituicao);
+            return Convert.ToInt32(cmd.ExecuteScalar());
+        }
+    }
+
+    public Atributos GetById(int id)
+    {
+        using (var conn = Database.GetConnection())
+        using (var cmd = new MySqlCommand("SELECT id, força, destreza, Constituicao FROM atributos WHERE id = @id", conn))
+        {
+            cmd.Parameters.AddWithValue("@id", id);
+            using (var reader = cmd.ExecuteReader())
+            {
+                if (reader.Read())
+                {
+                    return new Atributos
+                    {
+                        Id = reader.GetInt32("id"),
+                        Forca = reader.GetInt32("força"),
+                        Destreza = reader.GetInt32("destreza"),
+                        Constituicao = reader.GetInt32("Constituicao")
+                    };
+                }
+            }
+        }
+        throw new Exception("Atributos não encontrados.");
+    }
 }
