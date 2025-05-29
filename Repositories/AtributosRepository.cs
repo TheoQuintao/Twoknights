@@ -70,4 +70,17 @@ public class AtributosRepository
         }
         throw new Exception("Atributos não encontrados.");
     }
+
+    public void AtualizarAtributos(Atributos atributos)
+    {
+        using (var conn = Database.GetConnection())
+        using (var cmd = new MySqlCommand("UPDATE atributos SET força = @forca, destreza = @destreza, Constituicao = @constituicao WHERE id = @id", conn))
+        {
+            cmd.Parameters.AddWithValue("@forca", atributos.Forca);
+            cmd.Parameters.AddWithValue("@destreza", atributos.Destreza);
+            cmd.Parameters.AddWithValue("@constituicao", atributos.Constituicao);
+            cmd.Parameters.AddWithValue("@id", atributos.Id);
+            cmd.ExecuteNonQuery();
+        }
+    }
 }

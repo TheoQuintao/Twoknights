@@ -27,4 +27,14 @@ public class KnightService
     {
         _knightRepository.Delete(id);
     }
+
+    public Knight? GetById(int id)
+    {
+        return _knightRepository.GetById(id);
+    }
+
+    public void AtualizarKnight(Knight knight)
+    {
+        _knightRepository.AtualizarKnight(knight);
+    }
 }

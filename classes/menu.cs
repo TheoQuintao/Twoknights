@@ -57,6 +57,8 @@ public class Menu
             }
             Console.WriteLine($"{opcaoInimigo} - Batalha Knight vs Inimigo");
             opcaoInimigo++;
+            Console.WriteLine($"{opcaoInimigo} - Batalha Knight vs Knight"); // NOVA OPÇÃO
+            opcaoInimigo++;
             Console.WriteLine($"{opcaoInimigo} - Logout");
             Console.WriteLine("0 - Sair");
             Console.Write("Escolha uma opção: ");
@@ -69,7 +71,7 @@ public class Menu
             }
             else if (opcao == "2")
             {
-                Utility.ListarKnights();
+                Utility.ListarKnights(usuarioLogado);
                 Console.ReadKey();
             }
             else if (opcao == "3")
@@ -97,7 +99,15 @@ public class Menu
                 (usuarioLogado.Nome.ToLower() != "admin" && opcao == "4")
             )
             {
-                Utility.BatalhaKnightVsInimigo();
+                Utility.BatalhaKnightVsInimigo(usuarioLogado);
+                Console.ReadKey();
+            }
+            else if (
+                (usuarioLogado.Nome.ToLower() == "admin" && opcao == "8") ||
+                (usuarioLogado.Nome.ToLower() != "admin" && opcao == "5")
+            )
+            {
+                Utility.BatalhaKnightVsKnight(usuarioLogado);
                 Console.ReadKey();
             }
             else if (opcao == opcaoInimigo.ToString())
