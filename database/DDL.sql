@@ -63,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `twoknights`.`knights` (
   `hp` INT NOT NULL,
   `xp` INT NOT NULL,
   `nivel` INT NOT NULL,
+  `parry` DECIMAL(5,2) NOT NULL,
   `user_id` INT NOT NULL,
   `armas_id` INT NOT NULL,
   `atributos_id` INT NOT NULL,

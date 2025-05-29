@@ -2,7 +2,7 @@ public class AtributosService
 {
     private readonly AtributosRepository _atributosRepository = new AtributosRepository();
 
-    public void AdicionarAtributos(int forca, int destreza, int constituicao)
+    public int AdicionarAtributosERetornarId(int forca, int destreza, int constituicao)
     {
         var atributos = new Atributos
         {
@@ -10,6 +10,6 @@ public class AtributosService
             Destreza = destreza,
             Constituicao = constituicao
         };
-        _atributosRepository.Add(atributos);
+        return _atributosRepository.AddAndReturnId(atributos);
     }
 }

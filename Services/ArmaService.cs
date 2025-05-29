@@ -12,4 +12,9 @@ public class ArmaService
         };
         _armaRepository.Add(arma);
     }
+
+    public List<Arma> BuscarTodas()
+    {
+        return _armaRepository.GetAll();
+    }
 }
