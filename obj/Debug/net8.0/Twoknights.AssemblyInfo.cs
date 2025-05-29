@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Twoknights")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cccf5f101d5c2fee01dd9330c3076001d40632ca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+97f98677edea46ff76ee470ad36ffc71087736c8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Twoknights")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Twoknights")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

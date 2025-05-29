@@ -2,7 +2,7 @@ using MySqlConnector;
 
 public class Database
 {
-    private const string ConnectionString = "Server=localhost;Database=twoknights;User ID=seu_usuario;Password=sua_senha;";
+    private const string ConnectionString = "Server=localhost;Database=twoknights;User ID=root;Password=2507Theo@;";
 
     public static MySqlConnection GetConnection()
     {
