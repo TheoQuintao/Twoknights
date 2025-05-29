@@ -1,0 +1,20 @@
+public class KnightService
+{
+    private readonly KnightRepository _knightRepository = new KnightRepository();
+
+    public void AdicionarKnight(string nome, int hp, int xp, int nivel, decimal parry, int userId, int armasId, int atributosId)
+    {
+        var knight = new Knight
+        {
+            Nome = nome,
+            Hp = hp,
+            Xp = xp,
+            Nivel = nivel,
+            Parry = parry,
+            UserId = userId,
+            ArmasId = armasId,
+            AtributosId = atributosId
+        };
+        _knightRepository.Add(knight);
+    }
+}
