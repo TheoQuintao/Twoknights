@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "LUXWIIeZtmM=",
+  "dgSpecHash": "HHmyHxPxTSE=",
   "success": true,
   "projectFilePath": "D:\\GitTheo\\Twoknights\\Twoknights.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\theoo\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.2\\microsoft.extensions.dependencyinjection.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\theoo\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.2\\microsoft.extensions.logging.abstractions.8.0.2.nupkg.sha512",
+    "C:\\Users\\theoo\\.nuget\\packages\\mysqlconnector\\2.4.0\\mysqlconnector.2.4.0.nupkg.sha512"
+  ],
   "logs": []
 }
